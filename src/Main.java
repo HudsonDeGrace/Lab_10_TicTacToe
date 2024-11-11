@@ -11,8 +11,8 @@ public class Main {
         String player = "";
         int turns = 0;
 
-        clearBoard();
         do{
+            clearBoard();
             display();
             if(turns % 2 == 0){
                 System.out.println("\nX's turn");
@@ -35,14 +35,12 @@ public class Main {
             turns++;
             if(isWin(player)){
                 display();
-                clearBoard();
                 System.out.println("\n" + player + " Wins!");
                 if(!SafeInput.getYNConfirm(in, "Would you like to play again")){
                     terminate = true;
                 }
             } else if(isTie()){
                 display();
-                clearBoard();
                 System.out.println("\nIt's a tie!");
                 if(!SafeInput.getYNConfirm(in, "Would you like to play again")){
                     terminate = true;
@@ -80,7 +78,10 @@ public class Main {
         int col1 = 0;
         int col2 = 0;
         int col3 = 0;
-        for (String[] strings : board) { // Loop through first layer array
+        for (String[] strings : board) {// Loop through first layer array
+            col1 = 0;
+            col2 = 0;
+            col3 = 0;
             for (int j = 0; j < board.length; j++) { // Loops through each second layer array looking for player matching columns
                 switch (j) {
                     case 0:
